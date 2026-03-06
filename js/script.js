@@ -81,27 +81,7 @@ items.forEach(item =>{
     quantity.min = 0;
     quantity.value = currentQuantity;
 
-    // add quantity button
-    const addQuantity = document.createElement("button");
-    addQuantity.textContent = "+";
-    addQuantity.addEventListener("click", () => {
-        currentQuantity++;
-        quantity.textContent = `Quantity: ${currentQuantity}`;
-        quantity.value = currentQuantity; // Update the input value to reflect the current quantity
-    });
-
-    // remove quantity button
-    const removeQuantity = document.createElement("button");
-    removeQuantity.textContent = "-";
-    removeQuantity.addEventListener("click", () => {
-        if (currentQuantity > 0) {
-            currentQuantity--;
-            quantity.textContent = `Quantity: ${currentQuantity}`;
-        }
-
-     removeQuantity.value = currentQuantity; 
-    });
-
+  
     // new price based on quantity
     const updatePrice = () => {
         const newPriceCalculated = item.price * currentQuantity;
