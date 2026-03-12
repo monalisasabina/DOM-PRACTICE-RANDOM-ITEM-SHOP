@@ -7,60 +7,8 @@ const cartItemsContainer = document.getElementById("cart-items");
 const totalAmountElement = document.getElementById("total-amount");
 let total=0;
 
-// ITEMS CARD
-// Displaying all items (items card)
-items.forEach(item =>{
-  
-    // creating the list element
-    const li =document.createElement("li");
 
-    // creating item name element
-    const name = document.createElement("h3");
-      //textContent sets or gets the text inside an HTML element.
-    name.textContent = item.name;
-
-    //Creating image element
-    const image = document.createElement("img");
-    image.src = item.img;
-    image.alt = item.name;
-
-    // Created item description element
-    const description = document.createElement("p");
-    description.textContent = item.description;
-
-    
-    // PRICE AND QUANTITY ELEMENTS
-    // ------------------------------------------------------------------------------------------------------------------------
-    // Created item price element
-    const price = document.createElement("p");
-    price.textContent = `Price: KSH ${item.price}`;
-
-    // Initial quantity for each item
-    let currentQuantity = 0;
-
-    // quantity title
-    const quantityTitle = document.createElement("p");
-    quantityTitle.textContent = "Quantity:";
-
-    // Quantity input element
-    const quantity = document.createElement("input");
-    quantity.type = "number";
-    quantity.min = 0;
-    quantity.value = currentQuantity;
-    
-    // New Price elememnt
-    const updatedPrice = document.createElement("p");
-      updatedPrice.textContent = `TOTAL Price: KSH 0`
-
-    // Addlistener for the Input element
-    quantity.addEventListener("change", () => {
-        currentQuantity = parseInt(quantity.value);
-        const newPriceCalculated = item.price * currentQuantity;
-        updatedPrice.textContent = `TOTAL Price: KSH ${newPriceCalculated}`;
-    })
-
-
-    // ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
 
     // CART
     // Add to cart function
@@ -94,10 +42,74 @@ items.forEach(item =>{
         //  Formats a number to a fixed number of decimal places
     }
 
-    // Add cart button
+   
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+// ITEMS CARD
+// Displaying all items (items card)
+items.forEach(item =>{
+  
+    // creating the list element
+    const li =document.createElement("li");
+
+    // creating item name element
+    const name = document.createElement("h3");
+      //textContent sets or gets the text inside an HTML element.
+    name.textContent = item.name;
+
+    //Creating image element
+    const image = document.createElement("img");
+    image.src = item.img;
+    image.alt = item.name;
+
+    // Created item description element
+    const description = document.createElement("p");
+    description.textContent = item.description;
+
+    
+    // PRICE AND QUANTITY ELEMENTS
+    // -----------------------------------------------
+    // Created item price element
+    const price = document.createElement("p");
+    price.textContent = `Price: KSH ${item.price}`;
+
+    // Initial quantity for each item
+    let currentQuantity = 0;
+
+    // quantity title
+    const quantityTitle = document.createElement("p");
+    quantityTitle.textContent = "Quantity:";
+
+    // Quantity input element
+    const quantity = document.createElement("input");
+    quantity.type = "number";
+    quantity.min = 0;
+    quantity.value = currentQuantity;
+    
+    // New Price elememnt
+    const updatedPrice = document.createElement("p");
+      updatedPrice.textContent = `TOTAL Price: KSH 0`
+
+    // Addlistener for the Input element
+    quantity.addEventListener("change", () => {
+        currentQuantity = parseInt(quantity.value);
+        const newPriceCalculated = item.price * currentQuantity;
+        updatedPrice.textContent = `TOTAL Price: KSH ${newPriceCalculated}`;
+    })
+
+     // Add cart button
     const addCartButton = document.createElement("button");
-    addCartButton.textContent = "Add to Cart"; //name of the button
-    addCartButton.addEventListener("click", () => addToCart(item, currentQuantity)); // calling the add to cart function and passing the item and quantity as arguments
+        addCartButton.textContent = "Add to Cart"; //name of the button
+        addCartButton.addEventListener("click", () => { 
+            if (currentQuantity === 0) return alert("Please enter quantity greater than 0");
+            addToCart(item, currentQuantity); 
+        }); // calling the add to cart function and passing the item and quantity as arguments
+  
 
 
     // Building the  item card
@@ -114,3 +126,4 @@ items.forEach(item =>{
     itemsContainer.appendChild(li);
 
 })
+
