@@ -42,12 +42,6 @@ let total=0;
         //  Formats a number to a fixed number of decimal places
     }
 
-   
-
-
-
-
-
 
 // ------------------------------------------------------------------------------------------------------------------------
 // ITEMS CARD
@@ -56,6 +50,7 @@ items.forEach(item =>{
   
     // creating the list element
     const li =document.createElement("li");
+    li.classList.add("items-card")
 
     // creating item name element
     const name = document.createElement("h3");
@@ -91,7 +86,7 @@ items.forEach(item =>{
     quantity.min = 0;
     quantity.value = currentQuantity;
     
-    // New Price elememnt
+    // New Price element
     const updatedPrice = document.createElement("p");
       updatedPrice.textContent = `TOTAL Price: KSH 0`
 
@@ -108,9 +103,11 @@ items.forEach(item =>{
         addCartButton.addEventListener("click", () => { 
             if (currentQuantity === 0) return alert("Please enter quantity greater than 0");
             addToCart(item, currentQuantity); 
+            currentQuantity = 0; // Reset quantity after adding to cart
+            quantity.value = currentQuantity;
+            updatedPrice.textContent = `TOTAL Price: KSH 0`; //Reset the price display
         }); // calling the add to cart function and passing the item and quantity as arguments
   
-
 
     // Building the  item card
     li.appendChild(name);

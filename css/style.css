@@ -2,3 +2,22 @@ body{
     background-color: #ebe8e7;
     font-family: "raleway", sans-serif;
 }
+
+#the-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 2rem;
+    list-style: none; /*removes bullet points */
+
+}
+
+.items-card{
+    border: 1px solid #7A77B9;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    background-color: #f2c76e;
+
+}
