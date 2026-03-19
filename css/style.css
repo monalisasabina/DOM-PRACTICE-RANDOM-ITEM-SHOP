@@ -1,23 +1,247 @@
-body{
-    background-color: #ebe8e7;
-    font-family: "raleway", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+/* ─── CSS VARIABLES ─────────────────────────────── */
+:root {
+    --cream:    #EBE8E7;
+    --pink:     #EA7186;
+    --yellow:   #F2C76E;
+    --purple:   #7A77B9;
+    --lavender: #BD9DEA;
+    --white:    #ffffff;
+    --dark:     #2d2d2d;
 }
 
-#the-items{
+/* ─── RESET & BASE ─────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cream);
+    font-family: "Raleway", sans-serif;
+    color: var(--dark);
+}
+
+/* ─── HEADER ────────────────────────────────────── */
+header {
+    background: var(--purple);
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+header p {
+    color: var(--lavender);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    letter-spacing: 1px;
+}
+
+/* ─── LAYOUT ────────────────────────────────────── */
+.shop-layout {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: flex-start;
+}
+
+/* ─── ITEMS GRID ────────────────────────────────── */
+#the-items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    padding: 2rem;
-    list-style: none; /*removes bullet points */
-
+    gap: 1.5rem;
+    padding: 1rem;
+    list-style: none;
+    flex: 1;
 }
 
-.items-card{
-    border: 1px solid #7A77B9;
-    border-radius: 10px;
-    padding: 10px;
-    width: 300px;
-    background-color: #f2c76e;
+/* ─── ITEM CARD ─────────────────────────────────── */
+.items-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.2rem;
+    width: 260px;
+    box-shadow: 0 4px 15px rgba(122, 119, 185, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 4px solid var(--yellow);  /* yellow accent on top of each card */
+}
 
+.items-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(122, 119, 185, 0.25);
+    border-top-color: var(--pink);        /* changes to pink on hover */
+}
+
+.items-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.items-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--purple);
+}
+
+.items-card p {
+    font-size: 0.82rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+/* price styling */
+.items-card p:nth-last-child(3) {
+    font-weight: 600;
+    color: var(--pink);
+    font-size: 0.9rem;
+}
+
+/* total price styling */
+.items-card p:nth-last-child(2) {
+    font-weight: 700;
+    color: var(--purple);
+    font-size: 0.9rem;
+}
+
+.items-card input[type="number"] {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    border: 1.5px solid var(--lavender);
+    border-radius: 8px;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    background: var(--cream);
+    color: var(--dark);
+}
+
+.items-card input[type="number"]:focus {
+    border-color: var(--purple);
+    background: var(--white);
+}
+
+/* ─── BUTTONS ───────────────────────────────────── */
+.btn-add {
+    background: var(--pink);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+    letter-spacing: 1px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-add:hover {
+    background: var(--purple);
+}
+
+.btn-add:active {
+    transform: scale(0.97);
+}
+
+.btn-remove {
+    background: none;
+    color: var(--pink);
+    border: 1.5px solid var(--pink);
+    border-radius: 8px;
+    padding: 0.25rem 0.7rem;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-remove:hover {
+    background: var(--pink);
+    color: var(--white);
+}
+
+/* ─── CART ──────────────────────────────────────── */
+.cart {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 320px;
+    box-shadow: 0 4px 15px rgba(122, 119, 185, 0.15);
+    position: sticky;
+    top: 2rem;
+    border-top: 4px solid var(--purple);
+}
+
+.cart h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--cream);
+    letter-spacing: 1px;
+}
+
+#cart-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    min-height: 50px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed var(--lavender);  /* dashed lavender divider */
+    gap: 0.5rem;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+/* ─── CART TOTAL ─────────────────────────────────── */
+.cart-total {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    text-align: center;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--purple), var(--lavender));
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+
+/* ─── EMPTY CART MESSAGE ────────────────────────── */
+#cart-items:empty::before {
+    content: "Your cart is empty 🛍️";
+    color: var(--lavender);
+    font-size: 0.85rem;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    padding: 1rem 0;
 }

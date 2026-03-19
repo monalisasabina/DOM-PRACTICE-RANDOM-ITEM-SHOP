@@ -110,8 +110,9 @@ items.forEach(item =>{
   
 
     // Building the  item card
-    li.appendChild(name);
+   
     li.appendChild(image);
+    li.appendChild(name);
     li.appendChild(description);
     li.appendChild(price);
     li.appendChild(quantityTitle);
