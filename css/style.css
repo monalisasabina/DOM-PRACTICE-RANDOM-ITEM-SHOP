@@ -45,6 +45,10 @@ header p {
     letter-spacing: 1px;
 }
 
+/* .item_cont {
+    flex: 1;
+} */
+
 /* ─── LAYOUT ────────────────────────────────────── */
 .shop-layout {
     display: flex;
@@ -75,6 +79,7 @@ header p {
     flex-direction: column;
     gap: 0.5rem;
     border-top: 4px solid var(--yellow);  /* yellow accent on top of each card */
+    
 }
 
 .items-card:hover {
