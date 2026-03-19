@@ -36,13 +36,17 @@ header h1 {
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 3px;
+    text-align: center;
+    
 }
 
-header p {
-    color: var(--lavender);
-    font-size: 0.9rem;
-    margin-top: 0.3rem;
-    letter-spacing: 1px;
+.shop-desc p {
+    color: var(--dark);
+    font-size: 0.98rem;
+    line-height: 1.8;      /* ← breathing room between lines */
+    opacity: 0.9;
+    padding: 10px;
+    text-align: center;
 }
 
 /* .item_cont {
@@ -249,4 +253,23 @@ header p {
     display: block;
     text-align: center;
     padding: 1rem 0;
+}
+
+/* ─── FOOTER / TOTAL ────────────────────────────── */
+.total {
+    background: linear-gradient(135deg, var(--purple), var(--lavender));
+    color: var(--white);
+    text-align: center;
+    padding: 1.2rem 2rem;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: sticky;   /* sticks to bottom as you scroll */
+    bottom: 0;
+    width: 100%;
+}
+
+.total span {
+    color: var(--yellow);   /* total amount stands out in yellow */
 }
